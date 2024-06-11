@@ -1,15 +1,13 @@
 package steps;
 
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,6 +16,7 @@ import java.time.Duration;
 
 public class Exercise_Step {
     WebDriver driver;
+
     public WebElement cookieBanner() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element;
@@ -50,7 +49,7 @@ public class Exercise_Step {
 
     @Then("I should see the list of services are present and clickable")
     public void i_should_see_the_list_of_services_are_present_and_clickable() {
-        String[] subPages = {"Financial Crime Compliance","Customer Data Management", "Collections and Recovery", "Risk Orchestration", "Fraud and Identity Management", "Credit Risk Assessment", "Investigations and Due Diligence"};
+        String[] subPages = {"Financial Crime Compliance", "Customer Data Management", "Collections and Recovery", "Risk Orchestration", "Fraud and Identity Management", "Credit Risk Assessment", "Investigations and Due Diligence"};
 
         for (String subPage : subPages) {
             try {
