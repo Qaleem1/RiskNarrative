@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,7 +21,6 @@ public class Exercise_Step {
     public WebElement cookieBanner() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element;
-        //   element = driver.findElement(By.xpath("//*[@id=\"onetrust-accept-btn-handler\"]"));
         element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"onetrust-accept-btn-handler\"]")));
         return element;
     }
@@ -65,8 +65,13 @@ public class Exercise_Step {
             } catch (Exception e) {
                 throw new AssertionError("Element '" + subPage + "' was not found", e);
             }
-
         }
-        driver.quit();
+    }
+    @After
+    public void tearDown() {
+        // Quit the driver
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
